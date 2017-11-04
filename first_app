@@ -1,0 +1,61 @@
+Un projet se compose de plusieurs applications, chacune ayant un but précis (système d'actualités, galerie photos…). 
+
+
+1) Créer une application 
+
+$python manage.py startapp nom_app
+
+-- Arboresence du projet : 
+.
+├── nom_project
+│   ├── __init__.py
+│   ├── settings.py
+│   ├── urls.py
+│   ├── wsgi.py
+├── nom_app
+│   ├── admin.py
+│   ├── __init__.py
+│   ├── models.py
+│   ├── tests.py
+│   └── views.py
+└── manage.py
+
+
+2) Création de la première page
+
+ A) Créer un URLconf (pour appeler la vue) à l'aide d'un fichier urls.py dans le répertoire "nom_app"
+
+      from django.conf.urls import url
+      from . import views
+
+      urlpatterns = [
+          url(r'^$', views.index, name='index'),
+      ]
+
+
+
+  B) Définir les URLS dans le dispatcher, faire pointer l’URLconf racine vers le module nom_app.urls 
+  Dans le fichier mysite/urls.py :
+  
+  from django.conf.urls import include, url
+      from django.contrib import admin
+
+      urlpatterns = [
+          url(r'^nom_app/', include('nom_app.urls')),
+          url(r'^admin/', admin.site.urls),
+      ]
+      
+   #la fonction url reçoit obligatoirement quatre paramètres dont deux sont obligatoires : regex et view
+   # REGEX : Notez que ces expressions régulières ne cherchent pas dans les paramètres GET et POST, ni dans le nom de domaine. 
+   # NAME : Le nommage des URL permet de les référencer de manière non ambiguë depuis d’autres portions de code Django
+   # VIEW: Lorsque Django trouve une expression régulière qui correspond, il appelle la fonction de vue spécifiée
+   # KWARGS : Des paramètres nommés arbitraires peuvent être transmis dans un dictionnaire vers la vue cible
+      
+   C) Créer la vue : nom_app/views.py
+
+     from django.http import HttpResponse
+
+      def index(request):
+      return HttpResponse("Hello, world. You're at the polls index.")
+
+On peut tester la bonne execution en lançant : $ python manage.py runserver
