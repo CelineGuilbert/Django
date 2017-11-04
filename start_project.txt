@@ -14,6 +14,37 @@ $ python -m django --version
 2 - Créer le projet
 
 $ cd /home/user/Projets/   -- pour choisir le répertoire d'installation
-$ django-admin startproject mysite
+$ django-admin startproject mysite  -- Cela va créer un répertoire mysite dans le répertoire couran
 
---> Cela va créer un répertoire mysite dans le répertoire couran
+Une fois executé, voici l'arborescence obtenu : 
+mysite/
+    manage.py          -- point d'entrée de commande du management du projet, permet la création d'apps
+    mysite/
+        __init__.py    -- répertoire à consider comme un paquet python
+        settings.py
+        urls.py        -- table de routage
+        wsgi.py
+        
+3 - Le serveur de développement - intégré au framework
+
+Sé déplacer sur le répertoire mysite 
+$ python manage.py runserver
+
+--Ignorez pour l’instant l’avertissement au sujet des migrations de base de données non appliquées 
+--se rendre à l'adresse http://127.0.0.1:8000 avec votre navigateur Web.
+
+
+4 - Paramètres et configuration du projet
+
+A) Le mode debug est géré à travers une variable stockée dans le fichier settings.py : DEBUG = True, à mettre à True en dév
+B) Configurer la langue :
+
+   # Langage utilisé au sein de Django, pour afficher les messages 
+   # d'information et d'erreurs notamment
+
+   LANGUAGE_CODE = 'fr-FR'
+   # Fuseau horaire, pour l'enregistrement et l'affichage des dates
+   # Laissez UTC dans le cas de l'Europe de l'Ouest, c'est notre fuseau ;)
+   TIME_ZONE = 'UTC' ou TIME_ZONE = "Europe/Paris"
+
+C) Configuration de la base de données : DATABASES // ne rien modifier, par défaut, le gestionnaire est SQLite
