@@ -1,0 +1,15 @@
+1) Création de l'admin
+
+$ python manage.py createsuperuser
+
+Vous devriez voir l’écran de connexion à l’interface d’administration : http://127.0.0.1:8000/admin/. 
+
+2) Rendre accessible le modèle à l'application
+
+nom_app/admin.py
+
+
+from django.contrib import admin
+from .models import Distributeur  #Distributeur est la classe du modèle crée précedemment
+admin.site.register(Distributeur)
+
