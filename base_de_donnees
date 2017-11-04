@@ -1,0 +1,44 @@
+Configuration de la base de données
+
+1) Ouvrir mysite/settings.py et configurer au besoin (pas de nécessité pour un démarrage, on peut démarrer avec SQLite)
+2) plusieurs applications sont disponibles, cf INSTALLED_APPS pour que ces applications aient accès à leur base de donnée il faut 
+lancer le code :
+
+$ python manage.py migrate
+
+
+La commande migrate examine le réglage INSTALLED_APPS et crée les tables de base de données nécessaires en fonction des réglages de
+base de données dans votre fichier mysite/settings.py et des migrations de base de données contenues dans l’application
+
+
+3) Activation des modèles
+
+Pour inclure l’application dans notre projet, nous avons besoin d’ajouter une référence à sa classe de configuration dans le
+réglage INSTALLED_APPS (ici application polls)
+
+INSTALLED_APPS = [
+    'polls.apps.PollsConfig',
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+]
+
+$ python manage.py makemigrations polls
+
+En exécutant makemigrations, vous indiquez à Django que vous avez effectué des changements à vos modèles et que vous aimeriez que
+ces changements soient stockés sous forme de migration.
+Les migrations sont le moyen utilisé par Django pour stocker les modifications de vos modèles 
+(et donc de votre schéma de base de données), ce ne sont que des fichiers sur le disque.
+
+Vous pouvez consultez la migration pour vos nouveaux modèles si vous le voulez ; il s’agit du fichier polls/migrations/0001_initial.py
+
+
+
+RappeL :
+    Modifiez les modèles (dans models.py).
+    Exécutez python manage.py makemigrations pour créer des migrations correspondant à ces changements.
+    Exécutez python manage.py migrate pour appliquer ces modifications à la base de données.
+
