@@ -1,0 +1,19 @@
+Chaque site web conçu avec Django est considéré comme un projet, composé de plusieurs applications.
+Une application consiste en un dossier contenant plusieurs fichiers de code, chacun étant relatif à une composante du modèle MVT.
+
+Avantage d'une séparation du projet en applications : 
+ - Une application correctement conçue pourra être réutilisée dans d'autres projets par un simple copier/coller (ou un import), 
+ - Le code est structuré (un template, un modèle pour une application)
+
+
+
+1 - Vérifier la version de Django installé
+
+$ python -m django --version
+
+2 - Créer le projet
+
+$ cd /home/user/Projets/   -- pour choisir le répertoire d'installation
+$ django-admin startproject mysite
+
+--> Cela va créer un répertoire mysite dans le répertoire couran
