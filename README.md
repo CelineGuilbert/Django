@@ -1,4 +1,9 @@
 # Django
+
+
+
+![django logo](http://www.unixstickers.com/image/cache/data/stickers/django/django.sh-600x600.png "django logo")
+
 Django est un framework python open-source consacré au développement web 2.0. 
 
 
