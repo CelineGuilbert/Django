@@ -13,5 +13,5 @@ Django est un framework python open-source consacré au développement web 2.0.
 2) Développer sa première application : first_app
 3) Configurer la base de données
 4) Paramétrer l'administration
-
+5) Utiliser un template
 
