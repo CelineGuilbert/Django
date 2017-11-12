@@ -1,5 +1,14 @@
+Installation de l'environnement virtuel
+
+$ pip install virtualenv
+$ pip install virtualenv --upgrade
+Se rendre sur le répertoire  de l'apli via les commandes "CD"
+$ virtualenv .
+$ source bin/activate
+
 Installation de Django sous Linux
 
 $ sudo apt-get install python3-pip
 $ sudo aptitude install python3-django
 $ sudo pip install django
+
