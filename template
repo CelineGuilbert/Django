@@ -1,0 +1,26 @@
+1) Settings.py
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static')
+]
+
+2) Créer à la racine du site un fichier "static"
+3) Dans ce dossier, créer 2 sous-dossiers
+  - "js"
+  - "css"
+  
+  
+4) Indiquer l'utilisation du template à notre App
+Se rendre dans le sous-répertoire du même nom que l'appli (par convention) , pour reprendre le fichier du template (dans notre cas
+index.html)
+
+5) Dans index.html
+
+en première ligne : {% load static %}
+
+	<!-- CSS Style -->
+		<link rel='stylesheet' type='text/css' href="{% static 'css/grayscale.css' %}">
+		<link rel='stylesheet' type='text/css' href="{% static 'css/grayscale.min.css' %}">
+		<!-- JS Style -->
+		<script type='text/javascript' src='{% static 'css/grayscale.js' %}'></script>
+		<script type='text/javascript' src='{% static 'css/grayscale.min.js' %}'></script>
